@@ -1,0 +1,147 @@
+/* Words & Mud site. One stylesheet for every page, English and Arabic. No scripts, no cookies, fonts served from here. */
+@font-face { font-family: "Lilita One"; font-weight: 400; font-display: swap; src: url(fonts/LilitaOne-400-latin.woff2) format("woff2"); }
+@font-face { font-family: "Nunito"; font-weight: 600 900; font-display: swap; src: url(fonts/Nunito-600-latin.woff2) format("woff2"); }
+@font-face { font-family: "Baloo Bhaijaan 2"; font-weight: 800; font-display: swap; src: url(fonts/BalooBhaijaan2-800-arabic.woff2) format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200E, U+FB50-FDFF, U+FE70-FEFC; }
+@font-face { font-family: "Tajawal"; font-weight: 500; font-display: swap; src: url(fonts/Tajawal-500-arabic.woff2) format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200E, U+FB50-FDFF, U+FE70-FEFC; }
+@font-face { font-family: "Tajawal"; font-weight: 700; font-display: swap; src: url(fonts/Tajawal-700-arabic.woff2) format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+200C-200E, U+FB50-FDFF, U+FE70-FEFC; }
+
+:root {
+  color-scheme: light dark;
+  --bg: #FFF8EE;
+  --sky: #CFEBFA;
+  --card: #FFFFFF;
+  --text: #2A1E14;
+  --muted: #6B5644;
+  --line: #EBDCC7;
+  --mud: #7B5233;
+  --mud-deep: #573821;
+  --on-mud: #FFF3E3;
+  --link: #B8392F;
+  --red: #F25C54;
+  --blue: #2F80ED;
+  --green: #2FB463;
+  --gold: #FFC23D;
+  --f-head: "Lilita One", "Arial Rounded MT Bold", ui-rounded, system-ui, sans-serif;
+  --f-body: "Nunito", ui-rounded, -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+  --lh: 1.6;
+}
+:root[lang="ar"] {
+  --f-head: "Baloo Bhaijaan 2", "Tajawal", "Geeza Pro", "SF Arabic", "Noto Kufi Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-body: "Tajawal", "Nunito", "SF Arabic", "Geeza Pro", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --lh: 1.85;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #19120D;
+    --sky: #1E2A4A;
+    --card: #241A12;
+    --text: #F4EADF;
+    --muted: #C4B19D;
+    --line: #3B2C1F;
+    --mud: #4A3120;
+    --mud-deep: #F1DFC9;
+    --on-mud: #F4EADF;
+    --link: #FF9488;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, var(--sky) 0, var(--bg) 260px) no-repeat, var(--bg);
+  color: var(--text);
+  font: 600 17px/var(--lh) var(--f-body);
+  overflow-wrap: break-word;
+}
+:root[lang="ar"] body { font-weight: 500; }
+a { color: var(--link); text-underline-offset: .18em; text-decoration-thickness: 1.5px; }
+a:hover { text-decoration-thickness: 2.5px; }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+b, strong { font-weight: 800; }
+
+.wrap { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 20px; }
+@media (max-width: 400px) { .wrap { padding: 0 16px; } }
+
+/* top bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; padding-bottom: 8px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 400 1.15rem/1.1 var(--f-head); }
+:root[lang="ar"] .brand { font-weight: 800; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; box-shadow: 0 1px 3px rgba(0, 0, 0, .18); }
+.lang { font-weight: 800; text-decoration: none; padding: 8px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--card); color: var(--text); }
+.lang:hover { border-color: var(--mud); }
+.lang[lang="ar"] { font-family: "Tajawal", "Geeza Pro", sans-serif; font-weight: 700; }
+.lang[lang="en"] { font-family: "Nunito", ui-rounded, system-ui, sans-serif; }
+
+main { flex: 1; padding-bottom: 56px; }
+
+h1, h2, h3 { font-family: var(--f-head); font-weight: 400; line-height: 1.2; margin: 0; }
+:root[lang="ar"] h1, :root[lang="ar"] h2 { font-weight: 800; line-height: 1.5; }
+:root[lang="ar"] h3 { font-family: var(--f-body); font-weight: 700; line-height: 1.6; }
+h1 { font-size: 2.3rem; margin: 20px 0 6px; color: var(--mud-deep); }
+h2 { font-size: 1.45rem; margin: 40px 0 10px; color: var(--mud-deep); }
+h3 { font-family: var(--f-body); font-weight: 800; font-size: 1.1rem; margin: 28px 0 6px; }
+p, ul { margin: 0 0 12px; }
+ul { padding-inline-start: 1.3em; }
+li { margin-bottom: 6px; }
+li::marker { color: var(--mud); }
+@media (prefers-color-scheme: dark) { li::marker { color: var(--gold); } }
+.meta { color: var(--muted); margin-bottom: 20px; }
+.path { white-space: nowrap; font-weight: 800; }
+bdi, .ltr { unicode-bidi: isolate; }
+
+/* home */
+.hero { text-align: center; padding-top: 28px; }
+.hero .icon { width: 128px; height: 128px; border-radius: 29px; box-shadow: 0 10px 28px rgba(87, 56, 33, .28); display: block; margin: 0 auto 18px; }
+.hero h1 { font-size: 2.6rem; margin: 0 0 4px; }
+.hero .ar-name { font: 800 1.5rem/1.5 "Baloo Bhaijaan 2", "Tajawal", "Geeza Pro", sans-serif; color: var(--muted); margin: 0 0 12px; }
+.hero .en-name { font: 400 1.35rem/1.4 "Lilita One", ui-rounded, system-ui, sans-serif; color: var(--muted); margin: 0 0 12px; }
+.hero .line { font-size: 1.1rem; max-width: 30em; margin: 0 auto; }
+.balloons { display: flex; justify-content: center; gap: 10px; margin: 0 0 22px; }
+.balloons i { width: 14px; height: 17px; border-radius: 50% 50% 48% 48%; display: block; }
+.balloons i:nth-child(1) { background: var(--red); }
+.balloons i:nth-child(2) { background: var(--blue); transform: translateY(-5px); }
+.balloons i:nth-child(3) { background: var(--green); }
+
+.links { list-style: none; padding: 0; margin: 34px auto 0; max-width: 440px; display: grid; gap: 12px; }
+.links li { margin: 0; }
+.links a {
+  display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+  border-radius: 16px; background: var(--card); border: 1.5px solid var(--line);
+  color: var(--text); text-decoration: none; font-weight: 800; font-size: 1.1rem;
+  box-shadow: 0 2px 0 var(--line);
+}
+.links a:hover { border-color: var(--mud); }
+.links a::after { content: "›"; margin-inline-start: auto; font-size: 1.6rem; line-height: 1; color: var(--muted); }
+.dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.dot.red { background: var(--red); } .dot.blue { background: var(--blue); } .dot.green { background: var(--green); }
+
+/* support */
+.contact { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 18px 20px; margin: 18px 0 8px; box-shadow: 0 2px 0 var(--line); }
+.contact h2 { margin-top: 0; }
+.email { font: 800 1.25rem/1.4 "Nunito", ui-rounded, system-ui, sans-serif; direction: ltr; unicode-bidi: isolate; }
+.faq h3 { padding-top: 22px; border-top: 1.5px dashed var(--line); }
+.faq h3:first-of-type { border-top: 0; padding-top: 0; }
+
+/* privacy */
+.summary { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 16px 20px 6px; margin-top: 12px; }
+.summary h2 { margin-top: 4px; }
+.org { font-style: normal; }
+
+/* footer: the mud */
+footer {
+  position: relative; background: var(--mud); color: var(--on-mud);
+  padding: 22px 0 calc(24px + env(safe-area-inset-bottom)); font-size: .92rem; margin-top: 18px;
+}
+footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -15px; height: 16px;
+  background: var(--mud);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 16' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q15 1 30 9 T60 9 V16 H0Z'/%3E%3C/svg%3E") repeat-x left bottom / 60px 100%;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 16' preserveAspectRatio='none'%3E%3Cpath d='M0 9 Q15 1 30 9 T60 9 V16 H0Z'/%3E%3C/svg%3E") repeat-x left bottom / 60px 100%;
+}
+footer a { color: var(--on-mud); }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 8px; font-weight: 800; }
+footer p { margin: 0; opacity: .9; }
